@@ -1,0 +1,35 @@
+<section class="container-fluid py-3">
+    <div class="row d-flex justify-content-between">
+        <form class="col-6 d-flex p-2">
+            <input class="form-control form-control-lg border-dark mx-2" type="text" placeholder="Search"
+                aria-label="search" [(ngModel)]='value' name="search">
+            <button class="btn btn-dark" (click)="searchClick()">Search</button>
+        </form>
+        <div class="col-2">
+            <div class="accordion accordion-flush" id="filter">
+                <div class="accordion-item">
+                    <h5 class="accordion-header text-end">
+                        <i class="bi bi-funnel fs-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false"
+                            aria-controls="flush-collapseOne"></i>
+                    </h5>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#filter">
+                        <div class="accordion-body">
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">From</span>
+                                <input type="date" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm" [(ngModel)]='dateRange.fromDate' name="formDate">
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">To</span>
+                                <input type="date" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm" [(ngModel)]='dateRange.toDate' name="toDate">
+                            </div>
+                            <button class="btn btn-dark" (click)="filterNews()"><i class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

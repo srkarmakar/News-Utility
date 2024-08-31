@@ -1,0 +1,13 @@
+@for (news of filteredNews; track $index) {
+    <section class="container-fluid p-3">
+        <h1>{{news.title}}</h1>
+        <p><strong>Published -</strong> {{news.publishedAt}}</p>
+        <img class="col-sm-12" src={{news.urlToImage}} alt={{news.title}}>
+        <div class="col-sm-12">
+            <p><strong>By-</strong>{{news.author}}</p>
+            <em class="text-secondary mb-2">{{news.description}}</em>
+            <p>{{news.content}}</p>
+            <a href={{news.url}} class="text-decoration-none" target="_blank"><span class="text-dark">Reference: </span>{{news.url}}</a>
+        </div>
+    </section>
+}

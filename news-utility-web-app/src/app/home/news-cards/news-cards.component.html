@@ -1,0 +1,14 @@
+<div class="card my-2 shadow mb-5 bg-body-tertiary border-dark rounded">
+    <div class="card-body">
+        <h5 class="card-title"><b>{{news.title}}</b></h5>
+        <p class="card-text">{{news.description}}</p>
+    </div>
+    <img src={{news.urlToImage}} class="card-img-top" alt={{news.title}}>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">By-{{news.author}}</li>
+        <li class="list-group-item">Published: {{news.publishedAt}}</li>
+    </ul>
+    <div class="card-body">
+        <button class="btn btn-link text-decoration-none" (click)="newsdetails()">Read -></button>
+    </div>
+</div>

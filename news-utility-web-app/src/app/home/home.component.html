@@ -10,7 +10,7 @@
     <div class="row d-flex p-3">
         @for (news of filteredNews; track $index) {
             <div class="col-sm-4">
-                <app-news-cards [news]="news" (newsTitle)="newsDetails($event)"></app-news-cards>
+                <app-news-cards [news]="news"></app-news-cards>
             </div>
         }
     </div>

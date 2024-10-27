@@ -37,7 +37,7 @@ export class FiltersComponent {
   formatStartDate(date: Date): string {
     const year = date.getFullYear();
     const month = ('0' + (date.getMonth() + 1)).slice(-2);
-    const day = ('0' + (date.getDate()-1)).slice(-2);
+    const day = ('0' + (date.getDate() - 10)).slice(-2);
     return `${year}-${month}-${day}`;
   }
   formatEndDate(date: Date): string {

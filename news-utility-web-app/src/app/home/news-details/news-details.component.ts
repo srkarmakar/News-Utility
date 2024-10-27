@@ -1,27 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, signal } from '@angular/core';
 import { NewsService } from '../../services/news.service';
+import { News } from '../../../models/news';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-news-details',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './news-details.component.html',
   styleUrl: './news-details.component.scss'
 })
-export class NewsDetailsComponent implements OnInit {
-  allNews: any[] = [];
-  filteredNews: any[] = [];
+
+export class NewsDetailsComponent implements OnInit, AfterViewInit {
+  initialValue: News = {
+    title: '',
+    publishedAt: '',
+    urlToImage: '',
+    author: '',
+    description: '',
+    content: '',
+    url: ''
+  }
+  news!: News;
   constructor(private newsService: NewsService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.fetchNewsDetails()
   }
+
+  ngAfterViewInit(): void {
+    this.fetchNewsDetails();
+  }
+
   fetchNewsDetails() {
-    this.newsService.getAllNews().subscribe((data) => {
-      this.allNews = data.articles;
-      this.filteredNews = this.allNews.filter(news => news.title.includes(this.newsService.newsTitleForDetails));
-      console.log(this.filteredNews)
-    });
+    this.newsService.currentNews.subscribe((data: News) => {
+      this.news = data;
+    })
   }
 
 }
